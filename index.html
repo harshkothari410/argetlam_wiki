@@ -1,0 +1,33 @@
+<html>
+<head>
+	<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+	<div id="show_result"></div>
+
+	<script type="text/javascript">
+
+		$(function(){
+			var page = 206337;
+			$.ajax({
+				url: 'http://en.wikipedia.org/w/api.php?action=query&prop=revisions&format=json&rvprop=timestamp%7Cuser%7Ccomment&rvlimit=20&rvstart=20140301000000&rvdir=newer&titles=Ahmedabad',
+				type: 'GET',
+				dataType: 'jsonp',
+			})
+			.done(function( data ) {
+				console.log( data.query.pages['206337'].revisions.length );
+				var len = data.query.pages['206337'].revisions.length ;
+				$('#show_result').text('Ahmedabad Article Edit Count : ' + len );
+			})
+			.fail(function() {
+				console.log("error");
+			})
+			.always(function() {
+				console.log("complete");
+			});
+			
+		})
+	</script>
+</body>
+</html>
