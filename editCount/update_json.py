@@ -1,17 +1,14 @@
+#!/usr/bin/python
 import urllib2
 import urllib
 from bs4 import BeautifulSoup
-'''
-url = 'http://en.wikipedia.org/w/api.php'
-headers = { 'User-Agent' : 'Womens edit a thon' }
-values = {'format':'json','action':'query','titles':'Json','prop':'revisions','rvprop':'ids'}
-data = urllib.urlencode(values)
-req = urllib2.Request(url, headers=headers, data = data)
-html = urllib2.urlopen(req).read()
-print html
+import json
+import time
+import os
 
-'http://en.wikipedia/w/api.php?action=query&titles=Json&prop=revisions&rvprop=ids&format=json'
-'''
+dataPath = '~/wikiWomensStats/data.json'
+
+fullDataPath = '/home/user/wikiWomensStats/data.json'
 
 infoUrl = 'https://en.wikipedia.org/w/index.php?title=Vimla_Varma&action=info'
 infoData = {'title':'','action':'info'}
@@ -23,6 +20,7 @@ articleList += ['Rama_Devi_(Muzaffarpur)','Mala_Rajya_Laxmi_Shah','Rajkumari_Rat
 articleList += ['Purnima_Verma','Gundu_Sudha_Rani','Sandhya_Bauri','Malti_Devi','Bhavna_Kardam_Dave','Nisha_Chaudhary','Kailasho_Devi']
 
 articleEditInfo = {}
+
 def getEditCount(html):
     soup = BeautifulSoup(html)
     return int(soup.findAll('tr',id='mw-pageinfo-edits')[0].findAll('td')[1].text)
@@ -39,3 +37,23 @@ def getArticleEditCount():
         print article, 'page received'
         articleEditInfo[article] = getEditCount(html)
     return articleEditInfo
+
+def writeJson():
+    temp = getArticleEditCount()
+    with open(fullDataPath,'a') as f:
+        temp['timestamp'] = time.time() 
+        f.write(json.dumps(temp)+'\n')
+    f.close() 
+
+def readJson():
+    pointer = -2
+    with open(fullDataPath,'r') as f:
+        while f.read(1) != '\n':
+            f.seek(pointer,2)
+            pointer -= 1
+        latest = f.readline()
+    f.close()
+    return json.loads(latest)
+
+if __name__ == "__main__":
+    writeJson()

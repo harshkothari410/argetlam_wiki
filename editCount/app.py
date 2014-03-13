@@ -2,7 +2,7 @@
 from flask import Flask, jsonify
 from flask import abort
 from flask import make_response
-from utility import articleEditInfo,getArticleEditCount
+from update_json import readJson
 app = Flask(__name__)
 
 
@@ -14,6 +14,7 @@ def get_total_count():
 ''' To get the edit count of each article '''
 @app.route('/editCount/api/v1.0/article/<name>', methods = ['GET'])
 def get_article_count(name):
+    articleEditInfo = readJson()
     if name in articleEditInfo:
         return jsonify( { 'count': articleEditInfo[name] } )
     else:
@@ -22,8 +23,7 @@ def get_article_count(name):
 ''' To get all article related info & edit count '''
 @app.route('/editCount/api/v1.0/article/', methods = ['GET'])
 def get_article_count_all():
-    getArticleEditCount()
-    return jsonify( { 'data': articleEditInfo } )
+    return jsonify( { 'data': readJson() } )
 
 @app.errorhandler(404)
 def not_found(error):
