@@ -6,9 +6,11 @@ import json
 import time
 import os
 
-dataPath = '~/wikiWomensStats/data.json'
+rootPath = os.getcwd() + "/wikiWomensStats/"
 
-fullDataPath = '/home/user/wikiWomensStats/data.json'
+dataPath = rootPath + 'data.json'
+
+fullDataPath = rootPath + 'data.json'
 
 infoUrl = 'https://en.wikipedia.org/w/index.php?title=Vimla_Varma&action=info'
 infoData = {'title':'','action':'info'}
