@@ -1,0 +1,6 @@
+#imagebar{
+	background: url('../img/TopBanner.png') no-repeat;;
+	height: 275px;
+	/*width:100%;*/
+	margin-left: 13%;
+}

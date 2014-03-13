@@ -1,33 +1,81 @@
 <html>
 <head>
+	<meta http-equiv="content-type" content="text-html; charset=utf-8">	
+	<meta charset="utf-8">
+	<meta name="author" content="Harsh Kothari">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css">
+	<link rel="stylesheet" href="css/style.css">
+
+
 	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
 </head>
 
-<body>
-	<div id="show_result"></div>
+<body style="background : #f6f6f6">
+	<div id="imagebar">
+	</div>
 
-	<script type="text/javascript">
 
-		$(function(){
-			var page = 206337;
-			$.ajax({
-				url: 'http://en.wikipedia.org/w/api.php?action=query&prop=revisions&format=json&rvprop=timestamp%7Cuser%7Ccomment&rvlimit=20&rvstart=20140301000000&rvdir=newer&titles=Ahmedabad',
-				type: 'GET',
-				dataType: 'jsonp',
-			})
-			.done(function( data ) {
-				console.log( data.query.pages['206337'].revisions.length );
-				var len = data.query.pages['206337'].revisions.length ;
-				$('#show_result').text('Ahmedabad Article Edit Count : ' + len );
-			})
-			.fail(function() {
-				console.log("error");
-			})
-			.always(function() {
-				console.log("complete");
-			});
+	<div class="container-fluid">
+		<div class="span4 container-fluid">
+			Articles	
+		</div>
+
+		<div class="span4">
+			Total
+		</div>
+
+		<div class="span4">
+			Participant
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="span3"></div>
+		<div class="span6">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>No</th>
+					<th>Article</th>
+					<th>EditCount</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>Ahmedabad</td>
+					<td>23</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</div>
+ 	<script type="text/javascript">
+
+
+// //http://en.wikipedia.org/w/api.php?action=query&prop=revisions&format=json&rvprop=timestamp%7Cuser%7Ccomment&rvlimit=20&rvstart=20140301000000&rvdir=newer&titles=Ahmedabad
+// 		$(function(){
+// 			var page = 206337;
+// 			$.ajax({
+// 				url: 'http://127.0.0.1:5000/editCount/api/v1.0/article/',
+// 				type: 'GET',
+// 				dataType: 'json',
+// 			})
+// 			.done(function( data ) {
+// 				console.log( data["Usha_Meena"] );
+// 			})
+// 			.fail(function() {
+// 				console.log("error");
+// 			})
+// 			.always(function() {
+// 				console.log("complete");
+// 			});
 			
-		})
+// 		})
 	</script>
 </body>
 </html>
