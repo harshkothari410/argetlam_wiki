@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="author" content="Harsh Kothari">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="refresh" content="300; URL=http://localhost/argetlam_wiki">
+	<!-- <meta http-equiv="refresh" content="300; URL=http://localhost/argetlam_wiki"> -->
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css">
@@ -25,19 +25,31 @@
 
 	<div class="container-fluid summary">
 		<div class="span3 container-fluid">
-			<img src="img/articles.png">
-			Articles
+			<div class="left">
+				<img src="img/articles.png">
+			</div>
+			<div class="left count">
+				<div id='totalArticleCount'></div>
+				<div>Articles</div>
+				</div>
 		</div>
 
 		<div class="span3" id="totalEdit">
-			<img src="img/edit.png">
-			Total
+			<div class="left">
+				<img src="img/edit.png">
+			</div>
+			<div class="left count">
+				<div id='totalEditCount'></div>
+				<div>Edits</div>
+			</div>
 		</div>
 
-		<div class="span3">
+		<!-- <div class="span3">
 			<img src="img/women.png">
 			Participant
-		</div><br/><br/><br/>
+		</div> -->
+		
+		<br/><br/><br/>
 	</div>
 
 	<div class="container-fluid">
@@ -48,18 +60,9 @@
 				<tr>
 					<th>No</th>
 					<th>Article</th>
-					<th>EditCount</th>
+					<th>Edits</th>
 				</tr>
 				<tr class="rowEntry">
-					<td>
-						1
-					</td>
-					<td>
-						Marie Curie
-					</td>
-					<td>
-						12
-					</td>
 				</tr>
 			</thead>
 			<tbody id="articleData">
@@ -67,7 +70,7 @@
 			</tbody>
 		</table>
 		</div>
-		<div class="span10 credits">
+		<div class="span10 credits hide">
 			<div class="span2">
 				<a href="http://www.mediawiki.org/wiki/User:Rtdwivedi/2">Aarti Dwivedi</a>
 			</div>

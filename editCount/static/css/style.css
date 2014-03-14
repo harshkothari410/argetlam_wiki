@@ -26,3 +26,19 @@
     position: fixed; 
     bottom:0%;
 }
+
+.hide{
+	display: none;
+}
+
+.left{
+	float:left;
+}
+
+.right{
+	float:right;
+}
+
+.count{
+	margin:5px;
+}

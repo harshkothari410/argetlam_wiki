@@ -1,7 +1,7 @@
 $(function(){
 	var page = 206337;
 	$.ajax({
-		url: 'http://127.0.0.1:5000/editCount/api/v1.0/article/',
+		url: '/editCount/api/v1.0/article/',
 		type: 'GET',
 		dataType: 'json',
 	})
@@ -23,19 +23,22 @@ $(function(){
   		// 	 $('#articleData').append(articleData);
   		// 	 count = count + 1;
   			// });
+  		// https://en.wikipedia.org/wiki/key
+  		
 
 		for ( var key in values){
 			if (key === 'timestamp')
 				continue;
 			val = values[key];
 			totalEdit = totalEdit + val;
-			key = key.replace(/\_/g,' ');
-			articleData = "<tr><td> " + count + " </td> <td>" + key+ "</td> <td>" + val + "</td> </tr>";
+			var name = key.replace(/\_/g,' ');
+			var href = "https://en.wikipedia.org/wiki/" + key;
+			articleData = "<tr><td> " + count + " </td> <td> <a target = '_blank' href="+ href +">" + name+ "</a></td> <td>" + val + "</td> </tr>";
 			$('#articleData').append(articleData);
 			count = count + 1;
 		}
-
-		$('#totalEdit').text('Total Edit : ' + totalEdit);
+		$('#totalArticleCount').text(count);
+		$('#totalEditCount').text(totalEdit);
 
 	})
 	.fail(function() {
