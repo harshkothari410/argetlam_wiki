@@ -4,3 +4,25 @@
 	/*width:100%;*/
 	margin-left: 13%;
 }
+
+.summary{
+	margin-left: 15%;
+	padding-top: 3%;
+	padding-bottom: 3%;
+}
+
+/*tr.rowEntry :hover{
+	text-decoration: none;
+	color: #9B59B6;
+}*/
+
+.rowEntry td :hover{
+    color: #9B59B6;
+}
+
+.credits{
+	margin-left: 20%;
+	height: 40px; 
+    position: fixed; 
+    bottom:0%;
+}
