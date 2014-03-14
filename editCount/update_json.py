@@ -10,7 +10,7 @@ rootPath = os.getcwd() + "/wikiWomensStats/"
 
 dataPath = rootPath + 'data.json'
 
-fullDataPath = rootPath + 'data.json'
+fullDataPath = '/home/ubuntu/argetlam_wiki_data/data.json'
 
 infoUrl = 'https://en.wikipedia.org/w/index.php?'
 infoData = {'title':'','action':'info'}
