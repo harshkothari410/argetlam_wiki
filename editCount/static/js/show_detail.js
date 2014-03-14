@@ -44,4 +44,4 @@ $(function(){
 	.always(function() {
 		console.log("complete");
 	});
-})
+});

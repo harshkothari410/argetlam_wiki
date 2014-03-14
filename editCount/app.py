@@ -3,8 +3,12 @@ from flask import Flask, jsonify
 from flask import abort
 from flask import make_response
 from update_json import readJson
-app = Flask(__name__)
 
+app = Flask(__name__,static_url_path='')
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 ''' To get the total number of edits across the edit a thon '''
 @app.route('/editCount/api/v1.0/total', methods = ['GET'])
