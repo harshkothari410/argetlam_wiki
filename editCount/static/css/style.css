@@ -6,7 +6,7 @@
 }
 
 .summary{
-	margin-left: 15%;
+	/*margin-left: 15%;*/
 	padding-top: 3%;
 	padding-bottom: 3%;
 }
@@ -41,4 +41,16 @@
 
 .count{
 	margin:5px;
+}
+
+.navbar .nav,
+.navbar .nav > li {
+  float:none;
+  display:inline-block;
+  *display:inline; /* ie7 fix */
+  *zoom:1; /* hasLayout ie7 trigger */
+  vertical-align: top;
+}
+.navbar-inner {
+  text-align:center;
 }
