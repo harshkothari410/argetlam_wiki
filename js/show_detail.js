@@ -1,12 +1,13 @@
 $(function(){
 
+	var rootPath = 'wikiwomanstats/'
 	var ajax_call = function(){
 		var countTotal = 1;
 		console.log(1);
 		$('#articleData').find('tr').remove();
 		$('#userData').find('tr').remove();
 
-		$.getJSON('wikiwomanstats/useredit.json', function(json, textStatus) {
+		$.getJSON(rootPath+'useredit.json', function(json, textStatus) {
 			var count = 1;
 			for (key in json.user){
 				val = json.user[key];
@@ -18,7 +19,7 @@ $(function(){
 			}
 		});
 
-		$.getJSON('wikiwomanstats/articleedit.json', function(json, textStatus) {
+		$.getJSON(rootPath+'articleedit.json', function(json, textStatus) {
 			for (key in json){
 				val = json[key];
 				name = key.replace(/\ /g,'_');
@@ -29,7 +30,7 @@ $(function(){
 			}
 		});
 
-		$.getJSON('wikiwomanstats/generalstats.json', function(json, textStatus) {
+		$.getJSON(rootPath+'generalstats.json', function(json, textStatus) {
 			$('#totalArticleCount').text(countTotal-1);
 			$('#totalEditCount').text(json.totalEdit);
 			$('#totalUserCount').text(json.userCount);
