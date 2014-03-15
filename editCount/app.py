@@ -19,15 +19,15 @@ def get_total_count():
 @app.route('/editCount/api/v1.0/article/<name>', methods = ['GET'])
 def get_article_count(name):
     articleEditInfo = readJson()
-    if name in articleEditInfo:
-        return jsonify( { 'count': articleEditInfo[name] } )
+    if name in articleEditInfo['articles']:
+        return jsonify( { 'count': articleEditInfo['articles'][name] } )
     else:
         abort(404)
 
 ''' To get all article related info & edit count '''
 @app.route('/editCount/api/v1.0/article/', methods = ['GET'])
 def get_article_count_all():
-    return jsonify( { 'data': readJson() } )
+    return jsonify( readJson() )
 
 @app.errorhandler(404)
 def not_found(error):

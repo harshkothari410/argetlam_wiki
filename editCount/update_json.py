@@ -11,8 +11,6 @@ dataPath = rootPath + 'data.json'
 
 fullDataPath = rootPath + 'data.json'
 
-
-
 headers = { 'User-Agent' : 'Womens edit a thon India' }
 
 cmtitle = "Category:Articles_created_or_expanded_during_Women's_History_Month_(India)_-_2014"
@@ -53,7 +51,6 @@ def getEdits(title,pageId):
                    'titles' : ''
                    }
     edits = []
-    print ' New Request ', title
     while True:
         articleData['titles'] = title
         req = urllib2.Request(apiUrl, headers=headers, data = urllib.urlencode(articleData))
@@ -76,6 +73,7 @@ def getCount():
     counts = {}
     articles = {}
     participants = {}
+    anon = {}
     articleList = getArticleList(cmtitle)
     for article in articleList:
         articleTitle = article['title'].replace(' ','_')
@@ -85,16 +83,21 @@ def getCount():
         
         for edit in edits:
             if 'anon' not in edit:
-                if edit['user'] in participants:
-                    participants[edit['user']] += 1
+                if not ('bot' in edit['user'] or 'Bot' in edit['user']):
+                    if edit['user'] in participants:
+                        participants[edit['user']] += 1
+                    else:
+                        participants[edit['user']] = 1
+            else:
+                if edit['user'] in anon:
+                        anon[edit['user']] += 1
                 else:
-                    participants[edit['user']] = 1
-                    
+                    anon[edit['user']] = 1
         articles[articleTitle] = editCount
         
     counts['articles'] = articles
     counts['participants'] = participants
-    print counts
+    counts['anon'] = anon
     return counts
 
 def writeJson():

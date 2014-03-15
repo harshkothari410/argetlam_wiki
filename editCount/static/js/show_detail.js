@@ -6,27 +6,19 @@ $(function(){
 			dataType: 'json',
 		})
 		.done(function( data ) {
-			var values;
-			$.each( data, function( key, val ) {
-				values = val;
-			});
-			var count = 1, articleData, totalEdit = 0;
+			
+			var articles = data['articles'];
+			var participants = data['participants'];
   			
-  			$('#articleData').find('tr').remove();
+  			$('#articleData,#userData').find('tr').remove();
 
-			for ( var key in values){
-				if (key === 'timestamp')
-					continue;
-				val = values[key];
-				totalEdit = totalEdit + val;
-				var name = key.replace(/\_/g,' ');
-				var href = "https://en.wikipedia.org/wiki/" + key;
-				articleData = "<tr><td> " + count + " </td> <td> <a target = '_blank' href="+ href +">" + name+ "</a></td> <td>" + val + "</td> </tr>";
-				$('#articleData').append(articleData);
-				count = count + 1;
-			}
-			$('#totalArticleCount').text(count-1);
-			$('#totalEditCount').text(totalEdit);
+			
+			var articleTotal = addData(articles,'#articleData','https://en.wikipedia.org/wiki/');
+			var participantTotal = addData(participants,'#userData','https://en.wikipedia.org/wiki/Special:Contributions/');
+			
+			$('#totalArticleCount').text(articleTotal['count']-1);
+			$('#totalEditCount').text(articleTotal['total']);
+			$('#totalUserCount').text(participantTotal['count']-1);
 
 		})
 		.fail(function() {
@@ -39,3 +31,17 @@ $(function(){
 	ajax_call();
 	setInterval(ajax_call, 1000*60*3);
 });
+
+var addData = function (dict,table,hrefBase){
+	var val ,total = 0, count = 1;
+	for ( var key in dict){
+				val = dict[key];
+				total += val;
+				var name = key.replace(/\_/g,' ');
+				var href =  hrefBase + key;
+				articleData = "<tr><td> " + count + " </td> <td> <a target = '_blank' href="+ href +">" + name+ "</a></td> <td>" + val + "</td> </tr>";
+				$(table).append(articleData);
+				count = count + 1;
+			}
+	return {'total': total,'count' : count};
+};
