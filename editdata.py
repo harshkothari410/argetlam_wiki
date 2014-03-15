@@ -109,7 +109,7 @@ counter=collections.Counter(user)
 countrip = collections.Counter(ip_user)
 
 json1 = open('wikiwomanstats/useredit.json','w')
-josn2 = open('wikiwomanstats/articledit.json','w')
+josn2 = open('wikiwomanstats/articleedit.json','w')
 json3 = open('wikiwomanstats/generalstats.json','w')
 completeEdit = {'user':counter,'ip':countrip}
 completeEdit = json.dumps(completeEdit)

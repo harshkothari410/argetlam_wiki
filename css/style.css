@@ -1,6 +1,64 @@
 #imagebar{
-	background: url('../img/TopBanner.png') no-repeat;;
+	background: url('../img/TopBanner.png') no-repeat center center;
 	height: 275px;
 	/*width:100%;*/
-	margin-left: 13%;
+	/*min-height:100%;*/
+	/*margin-left: 13%;*/
+}
+
+.summary{
+	/*padding-left: 20%;*/
+	padding-top: 3%;
+	padding-bottom: 3%;
+}
+
+/*tr.rowEntry :hover{
+	text-decoration: none;
+	color: #9B59B6;
+}*/
+
+.rowEntry td :hover{
+    color: #9B59B6;
+}
+
+.credits{
+	margin-left: 20%;
+	height: 40px; 
+    position: fixed; 
+    bottom:0%;
+}
+
+.hide{
+	display: none;
+}
+
+.left{
+	float:left;
+}
+
+.well{
+	
+}
+
+.right{
+	float:right;
+}
+
+.count{
+	padding-left: 10px;
+	margin:5px;
+	font-size: 18px;
+	font-weight:500;
+}
+
+.navbar .nav,
+.navbar .nav > li {
+  float:none;
+  display:inline-block;
+  *display:inline; /* ie7 fix */
+  *zoom:1; /* hasLayout ie7 trigger */
+  vertical-align: top;
+}
+.navbar-inner {
+  text-align:center;
 }
