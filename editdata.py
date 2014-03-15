@@ -77,9 +77,14 @@ for article in articleList:
 	articles[article['title']] = len(final)
 	for item in final:
 		if item.has_key('anon'):
-			ip_user.append(item['user'])
+			ip_user.append(item['user'])	
 		else:
-			user.append(item['user'])
+			if 'bot' in item['user']:
+				pass
+			elif 'Bot' in item['user']:
+				pass
+			else:
+				user.append(item['user'])
 
 
 user_edit = len(user)
