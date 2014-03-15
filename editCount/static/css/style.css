@@ -1,12 +1,13 @@
 #imagebar{
-	background: url('../img/TopBanner.png') no-repeat;;
+	background: url('../img/TopBanner.png') no-repeat center center;
 	height: 275px;
 	/*width:100%;*/
-	margin-left: 13%;
+	/*min-height:100%;*/
+	/*margin-left: 13%;*/
 }
 
 .summary{
-	/*margin-left: 15%;*/
+	/*padding-left: 20%;*/
 	padding-top: 3%;
 	padding-bottom: 3%;
 }
@@ -35,12 +36,19 @@
 	float:left;
 }
 
+.well{
+
+}
+
 .right{
 	float:right;
 }
 
 .count{
+	padding-left: 10px;
 	margin:5px;
+	font-size: 18px;
+	font-weight:500;
 }
 
 .navbar .nav,
