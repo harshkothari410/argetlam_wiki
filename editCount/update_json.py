@@ -85,7 +85,7 @@ def getCount():
             if 'anon' not in edit:
                 user = edit['user'].replace(' ','_')
                 if not ('bot' in user or 'Bot' in user):
-                    if edit['user'] in participants:
+                    if user in participants:
                         participants[user] += 1
                     else:
                         participants[user] = 1
@@ -105,6 +105,7 @@ def writeJson():
     temp = getCount()
     with open(fullDataPath,'a') as f:
         temp['timestamp'] = time.time() 
+        print temp
         f.write(json.dumps(temp)+'\n')
     f.close() 
 
