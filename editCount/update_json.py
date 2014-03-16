@@ -82,6 +82,7 @@ def getCount():
         editCount = len(edits)
         
         for edit in edits:
+            user = edit['user'].replace(' ','_')
             if 'anon' not in edit:
                 if not ('bot' in edit['user'] or 'Bot' in edit['user']):
                     if edit['user'] in participants:
