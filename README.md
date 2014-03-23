@@ -1,7 +1,10 @@
 argetlam_wiki
 =============
 
-This is simple tool to show stats about edit-a-thones of Wikipedia Articles 
-* The number of edits per article created as part of the event.
-* The number of edits per editor participating in the event.
-* The total number of edits in the articles part of the event.
+വിക്കിപീഡിയ ലേഖനങ്ങളുടെ തിരുത്തല്‍ യത്നത്തിന്റെ സ്ഥിതി കാണിക്കുന്നതിനുള്ള ലളിതമായ ഒരു ഉപകരണമാണിത്
+
+*തിരുത്തലുകളുടെ എണ്ണം ഈ പരിപാടിയുടെ ഭാഗമായുള്ള ലേഖനം തിരിച്ച്
+
+*തിരുത്തലുകളുടെ എണ്ണം ഈ പരിപാടിയില്‍ പങ്കെടുത്തവരനുസരിച്ച്.
+
+*ഈ പരിപാടിയുടെ ഭാഗമായുള്ള ലേഖനങ്ങളിലെ ആകെ തിരുത്തലുകളുടെ എണ്ണം
