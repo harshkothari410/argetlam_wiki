@@ -76,7 +76,7 @@ def getCount():
     anon = {}
     articleList = getArticleList(cmtitle)
     for article in articleList:
-        articleTitle = article['title'].replace(' ','_')
+        articleTitle = article['title'].split(':')[-1].replace(' ','_')
         articleId = article['pageid']
         edits = getEdits(articleTitle,str(articleId))
         editCount = len(edits)
