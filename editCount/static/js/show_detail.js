@@ -13,8 +13,8 @@ $(function(){
   			$('#articleData,#userData').find('tr').remove();
 
 			
-			var articleTotal = addData(articles,'#articleData','https://en.wikipedia.org/wiki/');
-			var participantTotal = addData(participants,'#userData','https://en.wikipedia.org/wiki/Special:Contributions/');
+			var articleTotal = addData(articles,'#articleData','https://ml.wikipedia.org/wiki/');
+			var participantTotal = addData(participants,'#userData','https://ml.wikipedia.org/wiki/Special:Contributions/');
 			
 			$('#totalArticleCount').text(articleTotal['count']-1);
 			$('#totalEditCount').text(articleTotal['total']);

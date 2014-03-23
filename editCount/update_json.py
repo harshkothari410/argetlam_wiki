@@ -5,16 +5,16 @@ import json
 import time
 import os
 
-rootPath = os.getcwd() + "/wikiWomensStats/"
+#rootPath = os.getcwd() + "/wikiWomensStats/"
 
-dataPath = rootPath + 'data.json'
+#dataPath = rootPath + 'data.json'
 
-fullDataPath = '/home/ubuntu/argetlam_wiki_data/data.json'
+fullDataPath = '/home/ubuntu/argetlam_wiki_data/data_ml.json'
 
 headers = { 'User-Agent' : 'Womens edit a thon India' }
 
-cmtitle = "Category:Articles_created_or_expanded_during_Women's_History_Month_(India)_-_2014"
-apiUrl = 'https://en.wikipedia.org/w/api.php'
+cmtitle = "വർഗ്ഗം:2014 വനിതാദിന തിരുത്തൽ യജ്ഞത്തിന്റെ ഭാഗമായി സൃഷ്ടിക്കപ്പെട്ട താളുകൾ"
+apiUrl = 'https://ml.wikipedia.org/w/api.php'
 
 eventStartTimestamp = 20140301000000
 
@@ -52,11 +52,10 @@ def getEdits(title,pageId):
                    }
     edits = []
     while True:
-        articleData['titles'] = title
+        articleData['titles'] = title.split(':')[-1].encode('utf-8')
         req = urllib2.Request(apiUrl, headers=headers, data = urllib.urlencode(articleData))
         response = json.loads(urllib2.urlopen(req).read())
-        print 'url', urllib.urlencode(articleData)
-        print 'response', response
+        pageId = response['query']['pages'].keys()[0]
         for edit in response['query']['pages'][pageId]['revisions']:
             edits.append(edit)
             pass
@@ -104,8 +103,7 @@ def getCount():
 def writeJson():
     temp = getCount()
     with open(fullDataPath,'a') as f:
-        temp['timestamp'] = time.time() 
-        print temp
+        temp['timestamp'] = time.time()
         f.write(json.dumps(temp)+'\n')
     f.close() 
 
