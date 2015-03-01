@@ -1,4 +1,3 @@
-#!/usr/bin/python
 from flask import Flask, jsonify
 from flask import abort
 from flask import make_response

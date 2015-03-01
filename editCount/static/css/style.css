@@ -1,21 +1,12 @@
 #imagebar{
 	background: url('../img/TopBanner.png') no-repeat center center;
 	height: 275px;
-	/*width:100%;*/
-	/*min-height:100%;*/
-	/*margin-left: 13%;*/
 }
 
 .summary{
-	/*padding-left: 20%;*/
 	padding-top: 3%;
 	padding-bottom: 3%;
 }
-
-/*tr.rowEntry :hover{
-	text-decoration: none;
-	color: #9B59B6;
-}*/
 
 .rowEntry td :hover{
     color: #9B59B6;
@@ -34,10 +25,6 @@
 
 .left{
 	float:left;
-}
-
-.well{
-
 }
 
 .right{
@@ -59,6 +46,36 @@
   *zoom:1; /* hasLayout ie7 trigger */
   vertical-align: top;
 }
+
 .navbar-inner {
   text-align:center;
+}
+
+.dataTables_info, .dataTables_paginate, label{
+	font-size: 12px;
+}
+
+.dataTableContainer select {
+	width: 100px;
+}
+
+.dataTableContainer table.table.table-bordered tr{
+	background-color: transparent;
+	border-color: #dddddd;
+}
+
+.dataTableContainer table.table.table-bordered th{
+	border-color: #dddddd;
+}
+
+.dataTableContainer table.table-bordered.dataTable.no-footer{
+	border-color: #dddddd;
+}
+
+.dataTableContainer .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+	background: linear-gradient(to bottom, #585858 100%, #585858 100%)
+}
+
+.dataTableContainer .dataTables_wrapper .dataTables_paginate .paginate_button.current, .table .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+	background: linear-gradient(to bottom, #dcdcdc 100%, #DCDCDC 100%)
 }

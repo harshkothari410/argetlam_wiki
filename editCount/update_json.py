@@ -9,7 +9,7 @@ rootPath = os.getcwd() + "/wikiWomensStats/"
 
 dataPath = rootPath + 'data.json'
 
-fullDataPath = '/home/ubuntu/argetlam_wiki_data/data.json'
+fullDataPath = '/home/ubuntu/wikiWomen_data/data.json'
 
 headers = { 'User-Agent' : 'Womens edit a thon India' }
 
