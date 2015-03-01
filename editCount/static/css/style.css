@@ -1,0 +1,81 @@
+#imagebar{
+	background: url('../img/TopBanner.png') no-repeat center center;
+	height: 275px;
+}
+
+.summary{
+	padding-top: 3%;
+	padding-bottom: 3%;
+}
+
+.rowEntry td :hover{
+    color: #9B59B6;
+}
+
+.credits{
+	margin-left: 20%;
+	height: 40px; 
+    position: fixed; 
+    bottom:0%;
+}
+
+.hide{
+	display: none;
+}
+
+.left{
+	float:left;
+}
+
+.right{
+	float:right;
+}
+
+.count{
+	padding-left: 10px;
+	margin:5px;
+	font-size: 18px;
+	font-weight:500;
+}
+
+.navbar .nav,
+.navbar .nav > li {
+  float:none;
+  display:inline-block;
+  *display:inline; /* ie7 fix */
+  *zoom:1; /* hasLayout ie7 trigger */
+  vertical-align: top;
+}
+
+.navbar-inner {
+  text-align:center;
+}
+
+.dataTables_info, .dataTables_paginate, label{
+	font-size: 12px;
+}
+
+.dataTableContainer select {
+	width: 100px;
+}
+
+.dataTableContainer table.table.table-bordered tr{
+	background-color: transparent;
+	border-color: #dddddd;
+}
+
+.dataTableContainer table.table.table-bordered th{
+	border-color: #dddddd;
+}
+
+.dataTableContainer table.table-bordered.dataTable.no-footer{
+	border-color: #dddddd;
+}
+
+.dataTableContainer .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+	background: linear-gradient(to bottom, #585858 100%, #585858 100%)
+}
+
+.dataTableContainer .dataTables_wrapper .dataTables_paginate .paginate_button.current, .table .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+	background: linear-gradient(to bottom, #dcdcdc 100%, #DCDCDC 100%)
+}
